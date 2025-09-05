@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono&display=swap');
+
+:root {
+    --primary-bg: #f0f2f5;
+    --container-bg: #ffffff;
+    --text-color: #333;
+    --primary-color: #007bff;
+    --code-bg: #282c34; /* Atom One Dark background */
+    --border-color: #ddd;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#presentation-container {
+    background-color: var(--container-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 960px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+main#slide-container {
+    padding: 1.5rem;
+    min-height: 400px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+main#slide-container.fade-out {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+main#slide-container.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#slide-container h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+#slide-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#slide-container li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 0.75em;
+    line-height: 1.6;
+}
+
+#slide-container li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+#slide-container pre {
+    background-color: var(--code-bg);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#slide-container code {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    color: #abb2bf; /* Default text color for Atom One Dark */
+}
+
+nav {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+nav button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+nav button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+nav button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+#slide-counter {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: bold;
+}
